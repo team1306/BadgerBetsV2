@@ -68,10 +68,7 @@ class PreMatchState extends State<Scout> {
               teamNumberInput,
               SizedBox(height: 50),
               TextButton(
-                onPressed: () {
-                  
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => Auto()));
-                },
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Auto())),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateColor.resolveWith((states) => const Color.fromARGB(255, 137, 14, 5)),
                   minimumSize: WidgetStatePropertyAll(Size(200, 60)),

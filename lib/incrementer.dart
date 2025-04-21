@@ -10,7 +10,13 @@ class Incrementer extends StatefulWidget {
 }
 
 class IncrementerState extends State<Incrementer> {
-  int _count = 0;
+  int count = 0;
+
+  void updateCount(int newValue) {
+    setState(() {
+      count = newValue >= 0 ? newValue : 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +46,7 @@ class IncrementerState extends State<Incrementer> {
               IconButton(
                 icon: const Icon(Icons.remove),
                 color: buttonColor,
-                onPressed: () {
-                  if (_count > 0) {
-                    setState(() {
-                      _count--;
-                    });
-                  }
-                },
+                onPressed: () => updateCount(count - 1)
               ),
               Expanded(
                 child: Container(
@@ -58,7 +58,7 @@ class IncrementerState extends State<Incrementer> {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    '$_count',
+                    '$count',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 48), // Larger font
                   ),
                 ),
@@ -66,11 +66,7 @@ class IncrementerState extends State<Incrementer> {
               IconButton(
                 icon: const Icon(Icons.add),
                 color: buttonColor,
-                onPressed: () {
-                  setState(() {
-                    _count++;
-                  });
-                },
+                onPressed: () => updateCount(count + 1),
               ),
             ],
           ),
@@ -79,5 +75,5 @@ class IncrementerState extends State<Incrementer> {
     );
   }
 
-  int get value => _count;
+  int get value => count;
 }
