@@ -9,6 +9,10 @@ class TestView extends StatefulWidget {
 class _TestViewState extends State<TestView> {
   @override
   Widget build(BuildContext context) {
-    return Container(); // Replace with your widget tree
+    return const Scaffold(
+      body: Center(
+        child: Text('Test View'),
+      ),
+    );
   }
 }
