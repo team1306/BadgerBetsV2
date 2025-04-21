@@ -1,4 +1,4 @@
-import 'package:bbotsscoutingapp2025/scout.dart';
+import 'package:bbotsscoutingapp2025/Scout.dart';
 import 'package:flutter/material.dart';
 
 void main() {
