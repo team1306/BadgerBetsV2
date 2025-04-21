@@ -1,4 +1,3 @@
-import 'package:bbotsscoutingapp2025/pages/scout.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -105,16 +104,6 @@ class DashboardState extends State<Dashboard> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            TextButton(
-              onPressed:
-                  () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Scout()),
-                    ),
-                  },
-              child: Text("Scout a match"),
             ),
           ],
         ),
