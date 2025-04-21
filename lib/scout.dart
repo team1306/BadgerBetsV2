@@ -1,5 +1,5 @@
 import 'package:bbotsscoutingapp2025/Constants.dart';
-import 'package:bbotsscoutingapp2025/MatchType.dart';
+import 'package:bbotsscoutingapp2025/match_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,13 +16,13 @@ class PreMatchState extends State<Scout> {
   @override
   Widget build(BuildContext context) {
     List<DropdownMenuEntry> matchTypeOptions = [
-      DropdownMenuEntry(value: MatchType.PRACTICE, label: "Practice"),
-      DropdownMenuEntry(value: MatchType.QUALIFIER, label: "Qualifier"),
-      DropdownMenuEntry(value: MatchType.PLAYOFF, label: "Playoff"),
+      DropdownMenuEntry(value: MatchType.practice, label: "Practice"),
+      DropdownMenuEntry(value: MatchType.qualifier, label: "Qualifier"),
+      DropdownMenuEntry(value: MatchType.playoff, label: "Playoff"),
     ];
     DropdownMenu matchTypeSelector = DropdownMenu(
       dropdownMenuEntries: matchTypeOptions,
-      initialSelection: MatchType.QUALIFIER,
+      initialSelection: MatchType.qualifier,
       width: double.infinity,
       label: Text("Match Type"),
     );
