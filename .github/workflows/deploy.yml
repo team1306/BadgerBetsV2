@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
+          flutter-version: '3.27.0'  # 👈 Latest stable as of now
 
       - name: Enable web
         run: flutter config --enable-web
