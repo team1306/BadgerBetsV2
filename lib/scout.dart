@@ -16,6 +16,7 @@ class PreMatchState extends State<Scout> {
   @override
   Widget build(BuildContext context) {
     List<DropdownMenuEntry> matchTypeOptions = [
+      DropdownMenuEntry(value: MatchType.test, label:"Test"),
       DropdownMenuEntry(value: MatchType.practice, label: "Practice"),
       DropdownMenuEntry(value: MatchType.qualifier, label: "Qualifier"),
       DropdownMenuEntry(value: MatchType.playoff, label: "Playoff"),
