@@ -1,4 +1,4 @@
-import 'package:bbotsscoutingapp2025/Constants.dart';
+import 'package:bbotsscoutingapp2025/constants.dart';
 import 'package:flutter/material.dart';
 
 class Scout extends StatefulWidget {
