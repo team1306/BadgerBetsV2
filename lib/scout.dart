@@ -1,4 +1,5 @@
 import 'package:bbotsscoutingapp2025/Constants.dart';
+import 'package:bbotsscoutingapp2025/auto.dart';
 import 'package:bbotsscoutingapp2025/match_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,7 +68,10 @@ class PreMatchState extends State<Scout> {
               teamNumberInput,
               SizedBox(height: 50),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => Auto()));
+                },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateColor.resolveWith((states) => const Color.fromARGB(255, 137, 14, 5)),
                   minimumSize: WidgetStatePropertyAll(Size(200, 60)),
