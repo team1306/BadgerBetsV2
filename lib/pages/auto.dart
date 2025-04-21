@@ -1,22 +1,21 @@
 import 'package:bbotsscoutingapp2025/constants.dart';
-import 'package:bbotsscoutingapp2025/end.dart';
+import 'package:bbotsscoutingapp2025/widgets/incrementer.dart';
+import 'package:bbotsscoutingapp2025/pages/teleop.dart';
 import 'package:flutter/material.dart';
 
-import 'incrementer.dart';
-
-class Teleop extends StatefulWidget {
-  const Teleop({super.key});
+class Auto extends StatefulWidget {
+  const Auto({super.key});
 
   @override
-  State<StatefulWidget> createState() => TeleopState();
+  State<StatefulWidget> createState() => AutoState();
 }
 
-class TeleopState extends State<Teleop> {
+class AutoState extends State<Auto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${Constants.appTitle} Teleop"),
+        title: Text("${Constants.appTitle} Auto"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
@@ -33,7 +32,7 @@ class TeleopState extends State<Teleop> {
                 onPressed:
                     () => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => End()),
+                      MaterialPageRoute(builder: (context) => Teleop()),
                     ),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateColor.resolveWith(
@@ -41,12 +40,17 @@ class TeleopState extends State<Teleop> {
                   ),
                   minimumSize: WidgetStatePropertyAll(Size(200, 60)),
                 ),
-                child: Text("End"),
+                child: Text(
+                  "Move to Teleop",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
             ],
           ),
         ),
       ),
-    ); //end scaffold
-  } //end widget
-} //end class Teleop
+    );
+  }
+}
+
+//Custom incrementer code
