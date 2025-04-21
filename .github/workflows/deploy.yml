@@ -16,7 +16,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.0'  # 👈 Latest stable as of now
+          flutter-version: '3.29.3'  # 👈 Latest stable as of now
 
       - name: Enable web
         run: flutter config --enable-web
@@ -26,6 +26,9 @@ jobs:
 
       - name: Build web
         run: flutter build web
+
+      - name: Replace index.html for GitHub Pages
+        run: cp web/index.deploy.html build/web/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
