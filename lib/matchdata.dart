@@ -11,5 +11,6 @@ class MatchData {
 
 enum MatchType{
   practice,
-  qualifier
+  qualifier,
+  playoff
 }
