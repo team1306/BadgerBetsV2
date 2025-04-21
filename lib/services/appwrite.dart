@@ -1,5 +1,14 @@
 import 'package:appwrite/appwrite.dart';
 
+class Appwrite{
+   
+   
+}
+
+
+
+
+
 /// Returns a configured Appwrite [Client] instance.
 /// Call this function whenever you need the client in your services.
 Client getAppwriteClient() {
