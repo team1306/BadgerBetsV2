@@ -28,6 +28,10 @@ Account getAppwriteAccount() {
 
 /// Returns a configured Appwrite [Functions] instance.
 /// Call this function whenever you need the functions in your services.
+Functions getAppwriteFunctions() {
+  final client = getAppwriteClient();
+  return Functions(client);
+}
 
 /// Returns a configured Appwrite [Database] instance.
 /// Call this function whenever you need the database in your services.
