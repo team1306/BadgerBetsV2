@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bbotsscoutingapp2025/Constants.dart';
-import 'package:bbotsscoutingapp2025/Incrementer.dart';
+import 'package:bbotsscoutingapp2025/constants.dart';
+import 'package:bbotsscoutingapp2025/incrementer.dart';
 import 'package:bbotsscoutingapp2025/end.dart';
 
 class Teleop extends StatefulWidget {
