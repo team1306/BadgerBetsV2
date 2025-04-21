@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:bbotsscoutingapp2025/constants.dart';
-import 'package:bbotsscoutingapp2025/incrementer.dart';
-import 'package:bbotsscoutingapp2025/end.dart';
+import 'package:bbotsscoutingapp2025/pages/end.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/incrementer.dart';
 
 class Teleop extends StatefulWidget {
   const Teleop({super.key});
@@ -16,7 +17,7 @@ Incrementer teleopL4 = Incrementer(label: "L4");
 
 class TeleopState extends State<Teleop> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("${Constants.appTitle} Teleop"),

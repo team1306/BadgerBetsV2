@@ -1,4 +1,4 @@
-import 'package:bbotsscoutingapp2025/scout.dart';
+import 'package:bbotsscoutingapp2025/pages/scout.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,23 +14,19 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+        brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        useMaterial3: true
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true
+      ),
+      themeMode: ThemeMode.dark,
       home: const Dashboard(title: "Badger Bets"),
     );
   }
@@ -105,16 +101,21 @@ class DashboardState extends State<Dashboard> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TextButton(
-              onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (context) => Scout()))},
-              child: Text("Scout a match")
-            )
+              onPressed:
+                  () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Scout()),
+                    ),
+                  },
+              child: Text("Scout a match"),
+            ),
           ],
         ),
       ),
