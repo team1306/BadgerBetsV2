@@ -26,3 +26,13 @@ Databases getAppwriteDatabase() {
   final client = getAppwriteClient();
   return Databases(client);
 }
+//Returns a configured Appwrite [Session] instance.
+/// Call this function whenever you need the session in your services.
+/*Future<Session> loginEmailPasswordSession(String email, String password) async {
+  final account = getAppwriteAccount();
+  final result = await account.createEmailPasswordSession(
+      email: email,
+      password: password,
+  );
+  return result;
+}*/
