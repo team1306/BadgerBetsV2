@@ -30739,7 +30739,7 @@ gn(a){return a.length}}
 A.Dm.prototype={}
 A.x7.prototype={
 S(a){var s=null
-return new A.qR(B.xb,"Flutter Demo",A.XY(B.J,A.a44(B.J,s,s,B.o6),!0),A.XY(B.R,A.a44(B.R,s,s,B.o6),!0),B.tU,s)}}
+return new A.qR(B.xb,"BadgerBets",A.XY(B.J,A.a44(B.J,s,s,B.o6),!0),A.XY(B.R,A.a44(B.R,s,s,B.o6),!0),B.tU,s)}}
 A.pn.prototype={
 al(){return new A.po()}}
 A.po.prototype={
