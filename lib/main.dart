@@ -1,3 +1,4 @@
+import 'package:bbotsscoutingapp2025/views/testview.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -64,6 +65,10 @@ class DashboardState extends State<Dashboard> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            TextButton(
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TestView())),
+              child: Text("Go to test page")
+            )
           ],
         ),
       ),
