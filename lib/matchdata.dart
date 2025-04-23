@@ -1,12 +1,14 @@
+import 'dart:collection';
+
 class MatchData {
   String username;
   int matchNumber, robotNumber;
   MatchType matchType;
   
-  Map<String, int> scoring;
-  String notes;
+  Map<String, int> scoring = HashMap<String, int>();
+  String notes = "";
 
-  MatchData({required this.username, required this.matchNumber, required this.robotNumber, required this.matchType, this.scoring = const <String, int>{}, this.notes = ""}); 
+  MatchData({required this.username, required this.matchNumber, required this.robotNumber, required this.matchType}); 
 }
 
 enum MatchType {
