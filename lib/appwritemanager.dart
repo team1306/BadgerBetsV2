@@ -1,9 +1,10 @@
 import 'package:appwrite/appwrite.dart';
 
-class Appwrite{
+class AppwriteManager{
    
    
 }
+
 
 
 
