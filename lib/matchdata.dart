@@ -2,13 +2,13 @@ import 'dart:collection';
 
 class MatchData {
   String username;
-  int matchNumber, robotNumber;
-  MatchType matchType;
+  int matchNumber = -1, robotNumber = -1;
+  MatchType matchType = MatchType.practice;
   
   Map<String, int> scoring = HashMap<String, int>();
   String notes = "";
 
-  MatchData({required this.username, required this.matchNumber, required this.robotNumber, required this.matchType}); 
+  MatchData({required this.username}); 
 }
 
 enum MatchType {

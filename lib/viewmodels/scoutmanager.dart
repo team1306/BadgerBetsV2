@@ -14,7 +14,7 @@ class ScoutManager extends ChangeNotifier {
 
   void startScout() {
     currentPage = ScoutPages.auto;
-    matchData = MatchData(username: "", matchNumber: 0, robotNumber: 0, matchType: scoutView.matchType);
+    matchData = MatchData(username: "");
   }
 
   ScoutPages getCurrentPage() {
