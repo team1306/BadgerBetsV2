@@ -26,21 +26,21 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       themeMode: ThemeMode.dark,
-      home: const Dashboard(title: "Badger Bets"),
+      home: const Home(title: "Badger Bets"),
     );
   }
 }
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key, required this.title});
+class Home extends StatefulWidget {
+  const Home({super.key, required this.title});
 
   final String title;
 
   @override
-  State<Dashboard> createState() => DashboardState();
+  State<Home> createState() => HomeState();
 }
 
-class DashboardState extends State<Dashboard> {
+class HomeState extends State<Home> {
   int _counter = 0;
 
   void _incrementCounter() {
