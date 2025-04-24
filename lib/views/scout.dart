@@ -1,4 +1,7 @@
+import 'package:bbotsscoutingapp2025/matchdata.dart';
+import 'package:bbotsscoutingapp2025/viewmodels/scoutmanager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Scout extends StatefulWidget {
   const Scout({super.key});
@@ -8,6 +11,25 @@ class Scout extends StatefulWidget {
 }
 
 class ScoutState extends State<Scout> {
+  late ScoutManager scoutManager;
+
+  late MatchType matchType;
+  late DropdownMenu<MatchType> matchTypeDropdown;
+
+  ScoutState() {
+    scoutManager = ScoutManager(scoutView: this);
+    matchType = MatchType.qualification;
+    matchTypeDropdown = DropdownMenu(
+      width: double.infinity,
+      initialSelection: MatchType.qualification,
+      dropdownMenuEntries: [
+        DropdownMenuEntry(label: "Practice", value: MatchType.practice),
+        DropdownMenuEntry(label: "Qualification", value: MatchType.qualification),
+        DropdownMenuEntry(label: "Playoff", value: MatchType.playoff),
+      ],
+      onSelected: (value) => setState(() => matchType = value!)
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +39,22 @@ class ScoutState extends State<Scout> {
         title: Text("Scout"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+        child : switch(scoutManager.getCurrentPage()) {
+          ScoutPages.prematch => Column(
+            children: [
+              matchTypeDropdown
+            ],
+          ),
+          ScoutPages.auto => Column(
 
-          ],
-        ),
+          ),
+          ScoutPages.teleop => Column(
+
+          ),
+          ScoutPages.postmatch => Column(
+
+          )
+        }
       ),
     );
   }
