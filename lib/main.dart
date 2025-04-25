@@ -1,4 +1,5 @@
-import 'package:bbotsscoutingapp2025/views/scout.dart';
+import 'package:bbotsscoutingapp2025/viewmodels/scoutmanager.dart';
+import 'package:bbotsscoutingapp2025/views/scout/scout.dart';
 import 'package:bbotsscoutingapp2025/views/testview.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +68,7 @@ class HomeState extends State<Home> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TextButton(
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scout())),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scout(scoutManager: ScoutManager(),))),
               child: Text("Go to test page")
             )
           ],

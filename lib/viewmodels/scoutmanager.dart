@@ -1,30 +1,36 @@
 import 'package:bbotsscoutingapp2025/matchdata.dart';
-import 'package:bbotsscoutingapp2025/views/scout.dart';
+import 'package:bbotsscoutingapp2025/views/scout/scout.dart';
 import 'package:flutter/material.dart';
 
 class ScoutManager extends ChangeNotifier {
-  ScoutState scoutView;
-
-  ScoutPages currentPage = ScoutPages.prematch;
+  
   MatchData? matchData;
 
-
-  ScoutManager({required this.scoutView});
-
-
+  ScoutManager(){
+    startScout();
+  }
+  
   void startScout() {
-    currentPage = ScoutPages.auto;
+    //TODO implement user data getting
     matchData = MatchData(username: "");
+    notifyListeners();
   }
-
-  ScoutPages getCurrentPage() {
-    return currentPage;
+  
+  void setScoreData(String key, int value){
+    matchData!.scoring[key] = value;
+    print(value);
+    notifyListeners();
   }
-}
-
-enum ScoutPages {
-  prematch,
-  auto,
-  teleop,
-  postmatch 
+  
+  void addValueToScoreData(String key, int value){
+    if(matchData!.scoring.containsKey(key)) {
+      matchData!.scoring[key] = value + matchData!.scoring[key]!;
+    }
+    notifyListeners();
+  }
+  
+  int getScoreData(String key){
+    if(!matchData!.scoring.containsKey(key)) matchData!.scoring[key] = 0;
+    return matchData!.scoring[key]!;
+  }
 }
