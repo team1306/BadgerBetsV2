@@ -18,14 +18,12 @@ class ScoutManager extends ChangeNotifier {
   
   void setScoreData(String key, int value){
     matchData!.scoring[key] = value;
-    print(value);
     notifyListeners();
   }
   
   void addValueToScoreData(String key, int value){
-    if(matchData!.scoring.containsKey(key)) {
-      matchData!.scoring[key] = value + matchData!.scoring[key]!;
-    }
+    matchData!.scoring[key] = 
+      matchData!.scoring.containsKey(key) ? value + matchData!.scoring[key]! : value;
     notifyListeners();
   }
   
