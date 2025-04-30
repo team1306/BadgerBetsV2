@@ -7,7 +7,7 @@ class ScoutManager extends ChangeNotifier {
   MatchData? matchData;
 
   ScoutManager(){
-    startScout();
+    
   }
   
   void startScout() {
