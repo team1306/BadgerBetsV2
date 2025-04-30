@@ -15,7 +15,6 @@ class Scout extends StatefulWidget {
 }
 
 class ScoutState extends State<Scout> {
-  PageType pageType = PageType.auto;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class ScoutState extends State<Scout> {
         child: Builder(
           builder:
               (context) => 
-                switch (pageType) {
+                switch (widget.scoutManager.getCurrentPage()) {
                   PageType.preMatch => PreMatch(scoutManager: widget.scoutManager),
                   PageType.auto => Auto(scoutManager: widget.scoutManager),
                   PageType.teleop => Teleop(scoutManager: widget.scoutManager),

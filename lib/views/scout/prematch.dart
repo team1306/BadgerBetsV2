@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../matchdata.dart';
 import '../../viewmodels/scoutmanager.dart';
@@ -12,15 +13,16 @@ class PreMatch extends StatefulWidget{
 }
 
 class PreMatchState extends State<PreMatch>{
-  late MatchType matchType;
-  late DropdownMenu<MatchType> matchTypeDropdown;
+  MatchType matchType = MatchType.qualification;
+  int? matchNumber;
+  int? robotNumber;
   
   @override
   Widget build(BuildContext context) {
     widget.scoutManager.addListener(() => setState);
 
     matchType = MatchType.qualification;
-    matchTypeDropdown = DropdownMenu(
+    DropdownMenu<MatchType> matchTypeDropdown = DropdownMenu(
         width: double.infinity,
         initialSelection: MatchType.qualification,
         dropdownMenuEntries: [
@@ -30,9 +32,30 @@ class PreMatchState extends State<PreMatch>{
         ],
         onSelected: (value) => setState(() => matchType = value!)
     );
+
+    TextField matchNumberInput = TextField(
+      keyboardType: TextInputType.number,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onChanged: (value) => setState(() => matchNumber = int.parse(value)),
+    );
+    TextField robotNumberInput = TextField(
+      keyboardType: TextInputType.number,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onChanged: (value) => setState(() => robotNumber = int.parse(value)),
+    );
+    
+
     return Scaffold(
       //TODO implement
-      body: matchTypeDropdown,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          matchTypeDropdown,
+          matchNumberInput,
+          robotNumberInput,
+          widget.scoutManager.getStartButton(matchNumber, robotNumber, matchType)
+        ],
+      ),
     );
   }
   
