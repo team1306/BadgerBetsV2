@@ -19,7 +19,7 @@ class PreMatchState extends State<PreMatch>{
   
   @override
   Widget build(BuildContext context) {
-    widget.scoutManager.addListener(() => setState);
+    widget.scoutManager.addListener(() => setState(() {}));
 
     matchType = MatchType.qualification;
     DropdownMenu<MatchType> matchTypeDropdown = DropdownMenu(

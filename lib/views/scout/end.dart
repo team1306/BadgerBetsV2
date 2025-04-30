@@ -14,7 +14,7 @@ class EndState extends State<End>{
 
   @override
   Widget build(BuildContext context) {
-    widget.scoutManager.addListener(() => setState);
+    widget.scoutManager.addListener(() => setState(() {}));
 
     throw UnimplementedError();
   }

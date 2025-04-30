@@ -18,7 +18,7 @@ class ScoutState extends State<Scout> {
 
   @override
   Widget build(BuildContext context) {
-    widget.scoutManager.addListener(() => setState);
+    widget.scoutManager.addListener(() => setState(() {}));
 
     return Scaffold(
       appBar: AppBar(
