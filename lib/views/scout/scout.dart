@@ -1,7 +1,6 @@
 import 'package:bbotsscoutingapp2025/viewmodels/scoutmanager.dart';
 import 'package:bbotsscoutingapp2025/views/scout/auto.dart';
 import 'package:bbotsscoutingapp2025/views/scout/end.dart';
-import 'package:bbotsscoutingapp2025/views/scout/prematch.dart';
 import 'package:bbotsscoutingapp2025/views/scout/teleop.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +19,11 @@ class ScoutState extends State<Scout> {
   Widget build(BuildContext context) {
     widget.scoutManager.addListener(() => setState(() {}));
 
+    print("User: " + widget.scoutManager.matchData.username);
+    print("Match Number: " + widget.scoutManager.matchData.matchNumber.toString());
+    print("Robot Number: " + widget.scoutManager.matchData.robotNumber.toString());
+    print("Match Type: " + widget.scoutManager.matchData.matchType.toString());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -31,7 +35,6 @@ class ScoutState extends State<Scout> {
           builder:
               (context) => 
                 switch (widget.scoutManager.getCurrentPage()) {
-                  PageType.preMatch => PreMatch(scoutManager: widget.scoutManager),
                   PageType.auto => Auto(scoutManager: widget.scoutManager),
                   PageType.teleop => Teleop(scoutManager: widget.scoutManager),
                   PageType.end => End(scoutManager: widget.scoutManager),
@@ -43,4 +46,4 @@ class ScoutState extends State<Scout> {
   }
 }
 
-enum PageType { preMatch, auto, teleop, end }
+enum PageType {auto, teleop, end }

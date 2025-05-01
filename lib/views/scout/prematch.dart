@@ -1,3 +1,4 @@
+import 'package:bbotsscoutingapp2025/views/scout/scout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -5,8 +6,7 @@ import '../../matchdata.dart';
 import '../../viewmodels/scoutmanager.dart';
 
 class PreMatch extends StatefulWidget{
-  final ScoutManager scoutManager;
-  const PreMatch({super.key, required this.scoutManager});
+  const PreMatch({super.key});
 
   @override
   State<StatefulWidget> createState() => PreMatchState();
@@ -16,12 +16,27 @@ class PreMatchState extends State<PreMatch>{
   MatchType matchType = MatchType.qualification;
   int? matchNumber;
   int? robotNumber;
+
+  TextButton getStartButton(int? matchNumber, int? robotNumber, MatchType matchType) {
+    bool formComplete = matchNumber != null && robotNumber != null;
+
+    return TextButton(
+      onPressed: () {
+        if (formComplete) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Scout(scoutManager: ScoutManager(matchNumber, robotNumber, matchType))));
+        }
+      },
+      style: ButtonStyle(
+          backgroundColor: WidgetStateColor.resolveWith((state) => formComplete ? Colors.yellow : Colors.grey)
+      ),
+      child: Text(
+        "Start Scout",
+      ),
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
-    widget.scoutManager.addListener(() => setState(() {}));
-
-    matchType = MatchType.qualification;
     DropdownMenu<MatchType> matchTypeDropdown = DropdownMenu(
         width: double.infinity,
         initialSelection: MatchType.qualification,
@@ -53,7 +68,7 @@ class PreMatchState extends State<PreMatch>{
           matchTypeDropdown,
           matchNumberInput,
           robotNumberInput,
-          widget.scoutManager.getStartButton(matchNumber, robotNumber, matchType)
+          getStartButton(matchNumber, robotNumber, matchType)
         ],
       ),
     );
