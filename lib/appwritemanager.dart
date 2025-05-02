@@ -39,6 +39,8 @@ class AppwriteManager{
     }
   }
 
+  ///Set the value of a specified attribute.
+  ///Returns nothing if the update is successful. Returns Future.error otherwise.
   Future<void> _updateAttribute(String databaseId, String collectionId, String documentId, String attributeId, var value) async {
     try {
       HashMap data = HashMap();
