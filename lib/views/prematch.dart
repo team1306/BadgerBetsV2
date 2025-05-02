@@ -2,8 +2,8 @@ import 'package:bbotsscoutingapp2025/views/scout/scout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../matchdata.dart';
-import '../../viewmodels/scoutmanager.dart';
+import '../matchdata.dart';
+import '../viewmodels/scoutmanager.dart';
 
 class PreMatch extends StatefulWidget{
   const PreMatch({super.key});

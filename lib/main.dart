@@ -1,4 +1,4 @@
-import 'package:bbotsscoutingapp2025/views/scout/prematch.dart';
+import 'package:bbotsscoutingapp2025/views/prematch.dart';
 import 'package:flutter/material.dart';
 
 void main() {
