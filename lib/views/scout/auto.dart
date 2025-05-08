@@ -18,7 +18,12 @@ class AutoState extends State<Auto>{
     widget.scoutManager.addListener(() => setState(() {}));
 
     return Scaffold(
-      body: StatefulIncrementer(updateCallback: (value) => widget.scoutManager.setScoreData("auto.testkey", value), valueSupplier: () => widget.scoutManager.getScoreData("auto.testkey")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          StatefulIncrementer(updateCallback: updateCallback, valueSupplier: valueSupplier)
+        ],
+      )
     );
   }
 }
